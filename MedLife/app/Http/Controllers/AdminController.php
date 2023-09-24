@@ -1,0 +1,199 @@
+<?php
+namespace App\Http\Controllers;
+	
+	use App\Models\AdminModel;
+	use Illuminate\Http\Request;
+	use Auth;
+	use DB;
+	use App\Models\User;
+	use file;
+	use Input;
+    
+    
+class AdminController extends Controller
+{
+	public function __construct()
+    {
+       $this->admin= new AdminModel;
+    }
+	public function dashboard()
+	{
+		$data['speccount']=DB::table('speciality')->where('status','0')->count();
+		$data['doccount']=DB::table('doctors')->where('status','0')->count();
+		$data['bookcount']=DB::table('booking')->where('status','0')->count();
+		/*$data['bookings']=DB::table('bookings')->where('status','0')->count();*/
+         return view('back-end.dashboard',compact('data'));
+	}
+	
+	public function speciality()
+	{
+		$data['specialityloop']=DB::table('speciality')->where('status','0')->get();
+		 return view('back-end.speciality',compact('data'));
+	}
+	
+	public function doctorsb()
+	{
+		$data['specialityloop']=DB::table('speciality')->where('status','0')->get();
+		 $data['doctorloop']=DB::table('doctors')->where('status','0')->get();
+		 return view('back-end.doctorsb',compact('data'));
+	}
+	public function bookingsb()
+	{
+		 $data['bookingloop']=DB::table('booking')->where('status','0')->get();
+		 return view('back-end.bookingsb',compact('data'));
+	}
+	public function invoice(Request $request)
+	{
+		$data['bid']=$request->input('booking_id');
+		$data['invoiceloop']=DB::table('booking')->where('booking_id',$data['bid'])->first();		
+		 return view('back-end.invoice',compact('data'));
+	}
+	
+	public function admin()
+	{
+		return view('back-end.admin');
+	}
+	
+   public function adminlogin(Request $request)
+		{
+			$canLogin = 0;
+			$email = $request->input('email');/*name given in input type*/
+			$auth = user::where('email',$email)->where('usertype','admin')->first();
+			if($auth)
+			{
+				Auth::login($auth);
+				$password = Auth::user()->password;
+				$login_status = Auth::user()->status;
+				if($request->input('password'))
+				{
+					if ($request->input('password')==$password)
+					{
+						if($login_status=='0')
+						{ 
+							$canLogin=1;
+						}
+						elseif($login_status=='1')
+						{
+							$canLogin=404;
+						} 
+						else
+						{
+							$canLogin=0;
+						} 
+					}
+				}					
+				else
+				{
+					$canLogin=0;
+				}
+			}
+			return $canLogin;
+		}
+		
+		public function logout()
+		{
+		  if(Auth::check())
+			{
+				Auth::logout();
+				return redirect('admin');
+			}
+			else
+			{
+				return redirect('admin');
+			}
+		}
+		public function password()
+		{
+			return view('back-end.password');
+		}
+		
+		
+		public function sinsert(Request $request)
+		{
+			$data['speciality_id']=$request->input('speciality_id');
+			$data['specialityname']=$request->input('specialityname');
+			$data['specialitydescription']=$request->input('specialitydescription');
+			$path = 'Upload/gallery/';
+			$destinationPath=$path;
+			$fn=$request->file('specialityimage');
+			if($fn)
+			{
+				$fname=$request->file('specialityimage')->getClientOriginalName();
+				$data['image']=$request->file('specialityimage')->move($destinationPath,$fname);
+			}
+			else
+			{
+				$data['image']=$request->input('update_image');
+			}
+			return $this->admin->speciality_insert($data);
+			
+		}
+		
+		public function pinsert(Request $request)
+		{
+			$user=DB::table('users')->where('usertype','admin')->first();
+			$password=$user->password;
+			$old = $request->input('passwordold');/*name given in input type*/
+			$new = $request->input('passwordnew');
+				if($password==$old)
+				{
+					DB::table('users')->where('id',$user->id)->update(['password'=>$new]);
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
+				
+		}
+		
+		public function dinsert(Request $request)
+		{
+			$data['doctor_id']=$request->input('doctor_id');
+			$data['doctorspname']=$request->input('doctorspname');
+			$data['doctorname']=$request->input('doctorname');
+			$data['doctordescription']=$request->input('doctordescription');
+			$path = 'Upload/gallery/';
+			$destinationPath=$path;
+			$fn=$request->file('doctorimage');
+			if($fn)
+			{
+				$fname=$request->file('doctorimage')->getClientOriginalName();
+				$data['image']=$request->file('doctorimage')->move($destinationPath,$fname);
+			}
+			else
+			{
+				$data['image']=$request->input('update_image');
+			}
+			return $this->admin->doctor_insert($data);
+			
+		}
+		
+		public function ddoctor(Request $request)
+		{
+			$data=$request->input('Did');
+			return DB::table('doctors')->where('doctor_id',$data)->update(['status'=>'1']);
+			
+		}
+		public function edoctor(Request $request)
+		{
+			$data['Eid']=$request->input('Eid');
+			$editData=DB::table('doctors')->where('doctor_id',$data['Eid'])->first();
+			return json_encode($editData);
+		}
+		
+		public function dspeciality(Request $request)
+		{
+			$data=$request->input('Did');
+			return DB::table('speciality')->where('speciality_id',$data)->update(['status'=>'1']);
+			
+		}
+		public function especiality(Request $request)
+		{
+			$data['Eid']=$request->input('Eid');
+			$editData=DB::table('speciality')->where('speciality_id',$data['Eid'])->first();
+			return json_encode($editData);
+		}
+}
+
+?>
