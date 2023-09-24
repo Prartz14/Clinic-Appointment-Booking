@@ -1,0 +1,385 @@
+.vertical {
+            border-left: 1px solid white;
+            height: 40px;
+            position:absolute;
+            left: 45%;
+        }
+.scroll{overflow-x:scroll}
+.left{text-align:left}
+.table-hover > tbody > tr:hover {
+  background-color:#de9cc7;
+}
+.log{position:relative;left:-50px;top:-50px}
+.logo_brand{position:relative;top:20px}
+.b1{outline:3px solid #80225f;
+outline-offset:-20px}
+.b2{outline:3px solid #fff;
+outline-offset:-20px}
+.w100{width:100%}
+.tnone:hover{text-decoration:none}		
+.box1{box-sizing:border-box}
+.f17{font-size:17px}
+.f20{font-size:20px}
+.f30{font-size:30px}
+.f35{font-size:35px}
+.f80{font-size:80px}
+.white{background-color:white}
+.bg1{background:#50ab42}
+.bg2{background:#008c7f}
+.bg3{background:#1492c2}
+.b1g{background:#6d597a}
+.b2g{background:#b56576}
+.b3g{background:#e56b6f}
+.grey{background:#26262b}
+.lgrey{background:#f2f2f2}
+.pink{background:#e54176}
+.lblue{background:#52c0cf}
+.blue{background:#415364}
+.purple{background:#80225f}
+.mpurple{background:#c8529e}
+.lpurple{background:#de9cc7}
+.radius{border-radius:30%}
+.cblue{color:#415364}
+.cpurple{color:#80225f}
+.cmpurple{color:#c8529e}
+.cred{color:red}
+.cgrey{color:#26262b}
+.cwhite{color:white}
+.p1 {font-family: Lucida Console, Courier New, monospace;}
+.p2 {font-family: Snell Roundhand, cursive;}
+.century{font-family:Century Gothic, sans-serif}
+.mack{font-family:mackinac-pro,sans-serif}
+.center{text-align:center}
+.shadow{text-shadow:2px 1px black}
+.bnone{border:none}
+.pos{position:relative;left:-60px}
+.pos1{position:relative;top:10px}
+.pos2{position:relative;top:3px}
+.navbar{position:fixed;top:0}
+.radius{border-radius:25px}
+.cl1{height:30%;padding-top:10%;border:2px solid #fff;border-top:none}
+.about{height:30%;padding-top:10%;border:2px solid #fff;border-top:none}
+.anim:hover {
+        animation-name: breadth;
+        animation-duration: 100ms
+    }
+	 @keyframes background-color {
+        50% {
+       width: 400px;
+      }
+      
+    }
+.learn:hover{background-color: #f2f2f2;
+			color:#80225f;
+	transition:0.4s}
+.tag:hover{color:#52c0cf;
+	transition:0.4s}
+.thumbnail { 
+top:-50px; 
+left:-35px; 
+display:block; 
+z-index:999; 
+cursor: pointer; 
+-webkit-transition-property: all; 
+-webkit-transition-duration: 0.3s; 
+-webkit-transition-timing-function: ease; 
+} 
+
+/*change the number below to scale to the appropriate size*/ 
+.thumbnail:hover { 
+transform: scale(0.9); 
+}
+
+
+*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;	
+}
+
+.slider{
+	position:relative;
+	width:60%;
+	overflow:hidden;
+	right:-300px;
+}
+.images{
+	display:flex;
+	width:100%;
+}
+.images img{
+	height:400px;
+	width:100%;
+	transition:all 0.15s ease;
+}
+.images input{
+	display:none;
+}
+.dots{
+	display:flex;
+	justify-content:center;
+	margin:5px;
+}
+.dots label{
+	height:20px;
+	width:20px;
+	border-radius:50%;
+	border:solid #80225f 3px;
+	cursor:pointer;
+	transition:all 0.15s ease;
+	margin:5px;
+}
+.dots label:hover{background:#80225f};
+#img1:checked ~ .m1{
+	margin-left:0;
+}
+#img2:checked ~ .m2{
+	margin-left:-80%;
+}
+#img3:checked ~ .m3{
+	margin-left:-100%
+}
+#img3:checked ~ .m3{
+	margin-left:-250%;
+}
+
+.container{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin:-10px;
+    }
+    .box{
+        width:740%;
+        height: 150%;            
+        position: absolute;
+        top: 0;
+        left: 0;
+		box-sizing:border-box;
+        /* for demo purpose  */
+    }
+    .stack-top{
+        z-index: 9;
+        position:relative;
+		top:-50px;
+		margin-left:200px;
+		
+    }
+	
+#grad{background-image:linear-gradient(to right,#80225f ,#415364,#52c0cf );}
+#grad1{background-image:linear-gradient(to right,#415364,#acdedd );}
+#grad2{background-image:linear-gradient(to right,#80225f ,#415364,#80225f );}
+.border{border:2px solid #80225f;}
+
+
+@media(max-width:1200px)
+{
+.vertical {
+            border-left: 1px solid white;
+            height: 40px;
+            position:absolute;
+            left: 45%;
+        }
+.b1{outline:3px solid #80225f;
+outline-offset:-20px}
+.tnone:hover{text-decoration:none}		
+.box1{box-sizing:border-box}
+.f17{font-size:17px}
+.f20{font-size:20px}
+.f30{font-size:30px}
+.f35{font-size:35px}
+.f80{font-size:80px}
+.white{background-color:white}
+.bg1{background:#50ab42}
+.bg2{background:#008c7f}
+.bg3{background:#1492c2}
+.b1g{background:#6d597a}
+.b2g{background:#b56576}
+.b3g{background:#e56b6f}
+.grey{background:#26262b}
+.lgrey{background:#f2f2f2}
+.pink{background:#e54176}
+.lblue{background:#52c0cf}
+.blue{background:#415364}
+.purple{background:#80225f}
+.mpurple{background:#c8529e}
+.lpurple{background:#de9cc7}
+.radius{border-radius:30%}
+.cblue{color:#415364}
+.cpurple{color:#80225f}
+.cmpurple{color:#c8529e}
+.cred{color:red}
+.cgrey{color:#26262b}
+.cwhite{color:white}
+.p1 {font-family: Lucida Console, Courier New, monospace;}
+.p2 {font-family: Snell Roundhand, cursive;}
+.century{font-family:Century Gothic, sans-serif}
+.mack{font-family:mackinac-pro,sans-serif}
+.center{text-align:center}
+.shadow{text-shadow:2px 1px black}
+.bnone{border:none}
+.pos{position:relative;left:-60px}
+.pos1{position:relative;top:10px}
+.pos2{position:relative;top:3px}
+.navbar{position:fixed;top:0}
+.radius{border-radius:25px}
+.cl1{height:30%;padding-top:10%;border:2px solid #fff;border-top:none}
+.anim:hover {
+        animation-name: breadth;
+        animation-duration: 100ms
+    }
+	 @keyframes background-color {
+        50% {
+       width: 400px;
+      }
+      
+    }
+.learn:hover{background-color: #f2f2f2;
+			color:#80225f;
+	transition:0.4s}
+.tag:hover{color:#52c0cf;
+	transition:0.4s}
+.thumbnail { 
+top:-50px; 
+left:-35px; 
+display:block; 
+z-index:999; 
+cursor: pointer; 
+-webkit-transition-property: all; 
+-webkit-transition-duration: 0.3s; 
+-webkit-transition-timing-function: ease; 
+} 
+
+/*change the number below to scale to the appropriate size*/ 
+.thumbnail:hover { 
+transform: scale(0.9); 
+}
+
+
+*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;	
+}
+
+.slider{
+	position:relative;
+	width:60%;
+	overflow:hidden;
+	right:-300px;
+}
+.images{
+	display:flex;
+	width:100%;
+}
+.images img{
+	height:400px;
+	width:100%;
+	transition:all 0.15s ease;
+}
+.images input{
+	display:none;
+}
+.dots{
+	display:flex;
+	justify-content:center;
+	margin:5px;
+}
+.dots label{
+	height:20px;
+	width:20px;
+	border-radius:50%;
+	border:solid #80225f 3px;
+	cursor:pointer;
+	transition:all 0.15s ease;
+	margin:5px;
+}
+.dots label:hover{background:#80225f};
+#img1:checked ~ .m1{
+	margin-left:0;
+}
+#img2:checked ~ .m2{
+	margin-left:-80%;
+}
+#img3:checked ~ .m3{
+	margin-left:-100%
+}
+#img3:checked ~ .m3{
+	margin-left:-250%;
+}
+
+.container{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin:-10px;
+    }
+    .box{
+        width:740%;
+        height: 150%;            
+        position: absolute;
+        top: 0;
+        left: 0;
+		box-sizing:border-box;
+        /* for demo purpose  */
+    }
+    .stack-top{
+        z-index: 9;
+        position:relative;
+		top:-50px;
+		margin-left:200px;
+		
+    }
+	
+#grad{background-image:linear-gradient(to right,#80225f ,#415364,#52c0cf );}
+#grad1{background-image:linear-gradient(to right,#415364,#acdedd );}
+#grad2{background-image:linear-gradient(to right,#80225f ,#415364,#80225f );}
+.border{border:2px solid #80225f;}
+.yoga{width:230;}
+	.yoga3{position:relative;
+	left:5%}
+	.ytext{position:relative}
+}
+
+
+
+
+
+
+/*@media(max-width:1200px)
+{
+	.yoga{width:230;}
+	.yoga3{position:relative;
+	left:5%}
+	.ytext{position:relative}
+
+}*/
+@media(max-width:780px)
+{
+	.f80{font-size:40px}
+	.f40{font-size:20px}
+	.f30{font-size:20px}
+	.f20{font-size:15px}
+	.expert{position:relative;top:-3%}
+	.yoga{width:170;
+	border-radius:17px 5em 5%}
+	.ytext{position:relative}
+	.yoga3{position:relative;
+	left:5%}
+	.hrstyle{border-top: 2px solid #fff}
+	.mains{background:url(../Image/medback7.jpg);background-size:100% 100%}
+}
+@media(max-width:500px)
+{
+	.f80{font-size:20px}
+	.f40{font-size:10px}
+	.f30{font-size:15px}
+	.f20{font-size:15px}
+	.ytext{position:relative}
+	.power{position:relative}
+	.mains{background:url(../Image/medback7.jpg);
+	background-size:100% 100%}
+	.pad{padding-top:10%}
+	.pad2{padding:1%}
+
+}
