@@ -1,0 +1,113 @@
+<?php echo $__env->make('front-end/layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="background-image:url(front-end/Image/docc1.jpg);background-repeat:no-repeat;background-size:cover;padding-bottom:15%;">
+<div class="col-md-10 col-md-offset-1 col-xs-12 col-lg-10 col-lg-offset-1 col-sm-12">
+<p style="text-decoration:bolder;font-size:80px;color:#fff;text-shadow:2px 2px black;padding-top:15%" class="century">Doctors</p>
+<div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+<ol class="breadcrumb purple ">
+  <li><a href="home" class="cwhite tag tnone">Home</a></li>
+  <li class="active">Doctors</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" id="speciality" style="margin-top:5%">
+<p style="font-family:Gilroy Bold,sans-serif ;font-size:36px;" class="cpurple center"><b>SPECIALISTS</b></p>
+<center><hr style="border-top:4px solid  #415364" width="11%"></center>
+<div class="col-md-12 col-xs-12 xol-lg-12 col-sm-12" style="padding-top:3%">
+<?php $__currentLoopData = $data['specialityloop']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 " style="border:2px solid #80225f;padding-top:2%;padding-bottom:2%;margin-bottom:3%">
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 mpurple"><img style="padding-top:8%" src="<?php echo e($p->image); ?>" width="100"/><p class="center p2 f17 cwhite" style="padding-top:5%"><b><?php echo e($p->name); ?></b></div>
+<div class="col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1 col-sm-12 col-xs-12 " ><p class="f17 p2 " ><?php echo e($p->description); ?></p>
+<a href="#<?php echo e($p->name); ?>" role="button" class="learn btn btn-default blue cwhite radius" style="position:relative;border:2px solid white">View Doctors <img src="front-end/Image/arrow.png" width="10"/></a>
+</div>
+</div>
+</div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
+</div>
+
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" id="doctors">
+<p style="font-family:Gilroy Bold,sans-serif ;font-size:36px;" class="cblue center"><b>OUR DOCTORS</b></p>
+<center><hr style="border-top:4px solid #80225f " width="11%"></center>
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" style="margin-top:2%" id="grad4">
+
+
+
+
+
+<?php $__currentLoopData = $data['specialityloop']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $spec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	
+<div class="col-md-12 col-lg-12 specs col-sm-12 col-xs-12" id="<?php echo e($spec->name); ?>" style="margin-bottom:5%">
+<p class="p2 cgrey f25 center" style="padding-top:2%;"><?php echo e($spec->name); ?></p>
+<center><hr style="border-top:4px solid #415364" width="5%"></center>
+<?php $__currentLoopData = $data['doctorloop']->where('spname',$spec->name); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $doc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<?php if($doc->spname == $spec->name): ?>
+<div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+<div class="thumbnail">
+<img src="<?php echo e($doc->image); ?>">
+<div class="caption">
+<h3 class="p2" ><?php echo e($doc->name); ?></h3>
+<?php $uuid = uniqid();?>
+<a  class="btn btn-primary det hide-me" role="button" data-toggle="collapse" href="#<?php echo $uuid;?>"  aria-expanded="false" aria-controls="<?php echo $uuid;?>">More Details</a>
+</div>
+<div class="collapse" id="<?php echo $uuid;?>">
+<div class="card card-body">
+
+<button type="button" class="close " data-toggle="collapse" href="#<?php echo $uuid;?>" >x</button>
+<?php echo $doc->description?>
+
+<a  class="btn btn-primary det " role="button"  href="booking?doctor_id=<?php echo e($doc->doctor_id); ?>">Book Appointment</a>
+</div>
+</div>
+ </div> 
+
+</div>
+<?php endif ;?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
+
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--?php echo $data['about']->description; ?-->
+</div>
+</div>
+<!---div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+<p class="p2 cgrey f25 center" style="padding-top:2%;">Neurologist</p>
+<center><hr style="border-top:4px solid #415364" width="5%"></center>
+<div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+<div class="thumbnail">
+<img src="front-end/Image/n1.jpg">
+<div class="caption">
+<h3 class="p2" >Dr. John D'Souza</h3>
+<a  class="btn btn-primary det hide-me" role="button" data-toggle="collapse" href="#details1"  aria-expanded="false" aria-controls="details1">More Details</a>
+</div>
+<div class="collapse" id="details1">
+<div class="card card-body">
+<button type="button" class="close " data-toggle="collapse" href="#details1" >x</button>
+<p><b>Experience:</b> 11+ Years</p>
+
+<p><b>Position:</b> Senior Consultant │ Institute of Neurosciences</p>
+
+<p><b>Education:</b> MBBS │ MD (General Medicine)│ DM (Neurology) │ PDF (Epilepsy)</p>
+
+<p><b>Dr. John D'Souza</b> is the current senior consultant at the Institute of Neurology in Medanta-The Medicity, Gurugram.</p>
+
+<p><b>Dr. John D'Souza’</b> expertise includes comprehensive care for epilepsy, epilepsy surgery and electroencephalography advance reporting system. He is also a significant member of Indian Academy of Neurology.</p>
+
+<a  class="btn btn-primary det " role="button"  href="">Book Appointment</a>
+
+</div>
+</div>
+ </div> 
+
+</div>
+
+</div--->
+
+
+
+<?php echo $__env->make('front-end/layouts/footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\Users\HP\medcare\resources\views/front-end/doctors.blade.php ENDPATH**/ ?>

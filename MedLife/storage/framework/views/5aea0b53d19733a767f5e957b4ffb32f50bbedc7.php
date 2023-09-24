@@ -1,0 +1,56 @@
+<?php echo $__env->make('front-end/layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="background-image:url(front-end/Image/contact_bg.jpg);background-repeat:no-repeat;background-size:cover;padding-bottom:15%;">
+<div class="col-md-10  col-xs-12 col-lg-10  col-sm-12">
+<p style="text-decoration:bolder;font-size:80px;color:purple;text-shadow:2px 2px black;padding-top:15%" class="century">Contact Us</p>
+<div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+<ol class="breadcrumb white ">
+  <li><a href="home" class="cpurple tag tnone">Home</a></li>
+  <li class="active">Contact Us</li>
+</ol>
+</div> 
+</div>
+</div>
+
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" id="speciality" style="margin-top:5%">
+
+<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" style="margin-left:1%">
+<div class="col-md-3 col-lg-3  col-sm-4 col-xs-12 center">
+<img src="front-end/Image/location.png">
+<h4 class="p2 cpurple"><b>ADDRESS</b></h4>
+<p class="p1"><b>Medcare Hospital</b><br>
+146 Yuma Contracting<br>
+Denver CO 80223</p>
+<p class="p1"><b>Northern Division Hospital</b><br>
+1270 Automation Drive<br>
+Windsor, CO 80550</p>
+</div>
+<div class="center col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 col-sm-4 col-xs-12">
+<img src="front-end/Image/phone.png">
+<h4 class="p2 cpurple"><b>PHONE</b></h4>
+<p class="p1"><b>Medcare Hospital</b><br>
+303.428.2011 phone<br>
+303.202.0466 facsimile</p>
+<p class="p1"><b>Medcare Hospital 24/7 Service Department</b><br>
+303.428.2011<br>
+(Then press 2 for emergency calls)</p>
+<p class="p1"><b>Northern Division Hospital</b><br>
+303.428.2011 phone<br>
+303.202.0466 facsimile</p>
+<p class="p1"><b>Wyoming Hospital</b><br>
+307.757.7967 phone</p>
+</div>
+<div class="center col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 col-sm-4 col-xs-12">
+<img src="front-end/Image/msg.png">
+<h4 class="p2 cpurple"><b>EMAIL</b></h4>
+<p class="p1"><b>Request for Proposal</b><br>
+info@medcare.com</p>
+<p class="p1"><b>Service Calls</b><br>
+service@medcare.com</p>
+<p class="p1"><b>Employment Opportunities</b><br>
+careers@medcare.com</p>
+</div>
+</div>
+</div>
+<?php echo $__env->make('front-end/layouts/footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<?php /**PATH C:\Users\HP\medcare\resources\views/front-end/contactus.blade.php ENDPATH**/ ?>
